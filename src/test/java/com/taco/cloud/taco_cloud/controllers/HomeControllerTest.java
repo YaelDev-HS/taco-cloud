@@ -12,25 +12,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
-import com.taco.cloud.taco_cloud.HomeController;
-
-
-
 @WebMvcTest(HomeController.class)
 public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
     public void testHome() throws Exception {
         mockMvc.perform(get("/"))
-            .andExpect(status().isOk())
-            .andExpect(view().name("home"))
-            .andExpect(content().string(
-                containsString("Welcome to...")
-            ));
+                .andExpect(status().isOk())
+                .andExpect(view().name("home"))
+                .andExpect(content().string(
+                        containsString("Welcome to...")));
     }
 
 }
